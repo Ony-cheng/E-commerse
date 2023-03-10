@@ -1,0 +1,18 @@
+.btnActive {
+    color:white;
+    background-color: #04232f !important;
+    width:150px;
+    margin:5px;
+    border:none;
+    border-radius:2px;
+}
+.btnInactive {
+    color:#04232f;
+    background-color: white !important;
+    width:150px;
+    margin:5px;
+    border:none;
+}
+.btnInactive:hover{
+    color: #04232f !important;
+}

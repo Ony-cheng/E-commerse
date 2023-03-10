@@ -1,0 +1,7 @@
+.custom-dialog {
+    max-width: none;
+    width: 50%;
+    position: fixed;
+    top:0;
+    right: 20px;
+}

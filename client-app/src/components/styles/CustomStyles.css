@@ -1,0 +1,29 @@
+.cart{
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+
+    /*background: transparent;*/
+}
+
+.cartContainer{
+    overflow-y: scroll;
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:65vw;
+    padding-left: 12px;
+    background-color: beige;
+    border-left: 1px solid lightgrey;
+}
+.cartClose{
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:35vw;
+    left:0;
+
+}
