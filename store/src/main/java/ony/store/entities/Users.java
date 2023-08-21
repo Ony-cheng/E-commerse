@@ -16,6 +16,12 @@ public class Users {
 
     private String username;
 
+    private String name;
+
+    private String surname;
+
+    private String phone;
+
     private String email;
 
     @OneToMany( mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -24,7 +30,11 @@ public class Users {
     private List<Review> reviews;
 
     @OneToOne(mappedBy = "users", cascade = CascadeType.PERSIST)
+    @JsonIgnore
     private Cart cart;
+
+    @OneToOne(mappedBy = "users", fetch = FetchType.EAGER, orphanRemoval = true)
+    private DeliveryInfo deliveryInfo;
 
     public int getId() {
         return id;
@@ -56,5 +66,45 @@ public class Users {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public DeliveryInfo getDeliveryInfo() {
+        return deliveryInfo;
+    }
+
+    public void setDeliveryInfo(DeliveryInfo deliveryInfo) {
+        this.deliveryInfo = deliveryInfo;
     }
 }

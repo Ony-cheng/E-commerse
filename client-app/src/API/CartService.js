@@ -9,12 +9,16 @@ export default class Cart{
         return result;
     }
 
-    static  removeFromCart(cartId, productId){
-        axios.delete(BASE_API_URL + "cart/remove/", {params:{cartId: cartId , productId: productId}} )
+    static  removeFromCart(cartId, cartItemId){
+        axios.delete(BASE_API_URL + "cart/remove/", {params:{cartId: cartId , cartItemId: cartItemId}} )
     }
 
     static async addToCart(cartId, product){
         await axios.post(BASE_API_URL + "cart/add/" + cartId, product )
+        // axios.patch()
+    }
+    static async updateQty(cartItemId, newQty){
+        await axios.post(BASE_API_URL + "cart/updateqty" ,null,{params:{cartItemId: cartItemId , newQty: newQty}} )
         // axios.patch()
     }
 }

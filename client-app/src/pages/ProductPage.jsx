@@ -12,6 +12,7 @@ import Reviews from "../API/Reviews";
 import PostForm from "../components/PostForm";
 import Stars from '../UIComponents/Stars'
 import RatingButton from "../UIComponents/RatingButton";
+import './styles/SomePagesStyles.css';
 
 const ProductPage = () => {
     const { id } = useParams();
@@ -27,6 +28,14 @@ const ProductPage = () => {
     const [reviews, setReviews] = useState([])
     const [postFormVisible, setPostFormVisible] = useState(false)
     const [show, setShow] = useState(false);
+
+    const [user, setUser] = useState({
+        id: 1,
+        username: "Pikatchu",
+        email: "pikatchu@mail.gov.ua"
+    })
+
+
     function showPostForm(){
         setPostFormVisible(!postFormVisible)
         console.log(reviews)
@@ -65,13 +74,13 @@ const ProductPage = () => {
 
     return (
 
-        < >
-            <NavigationBar handleShow={handleShow}  />
+        <div className='main'>
+            <NavigationBar handleShow={handleShow}  user={user} />
             <Login handleClose={handleClose} show={show} />
             <main className="mx-0"  >
                 <Container className="mx-0  min-vw-100" >
                     <Row className="w-100">
-                        <Col className="px-0 col-2">
+                        <Col className="px-0 col-2 ">
                         </Col >
                             <Col className="px-0 my-3  col-8" >
                                 <Row className="px-3 my-4 " >
@@ -177,7 +186,7 @@ const ProductPage = () => {
                     </Row>
                 </Container>
             </main>
-        </>
+        </div>
     );
 };
 

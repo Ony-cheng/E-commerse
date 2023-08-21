@@ -7,7 +7,7 @@ const CatWindow = ({categories, activeCat, setActiveCat, setTopIsVisible}) => {
             minHeight:'100%',
             padding:'20px',
             paddingTop:'70px',
-            borderRight:'1px solid grey',
+            borderRight:'1px solid black',
             justifyContent:'left',
             display:'inline-block'
         }}>

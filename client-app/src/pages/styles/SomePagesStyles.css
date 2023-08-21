@@ -1,4 +1,8 @@
 .main{
 
+background-color: beige;
+    min-height: 100vh;
+    /*background-image: url("/src/images/28.jpg");*/
+    /*background-size:cover;*/
 
 }

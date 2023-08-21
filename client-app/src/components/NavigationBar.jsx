@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from "../images/everstore.png";
 import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom'
-const NavigationBar = ({handleShow,handleShowCart}) => {
+const NavigationBar = ({handleShow,handleShowCart, user}) => {
     return (
         <div styles={{minWidth:'100vw'}}>
             <header >
@@ -33,9 +33,19 @@ const NavigationBar = ({handleShow,handleShowCart}) => {
                                 {/*<Nav.Link href="#pricing">Товари на які ви заслуговуєте</Nav.Link>*/}
                             </Nav>
                             <Nav >
-                                {/*<Nav.Link href="#deets">Вхід</Nav.Link>*/}
+                                { !(user.username === "guest") ?
+                                    <Link to={
+                                        `/cabinet/${user.username}`
+                                    }
+                                          style={{color:'white', margin:'auto', textDecoration:'none'}}>
+                                        {user.username}
+                                    </Link>
+                                    : <Button  variant="outline-light" onClick={handleShow}>Вхід</Button>
 
-                                <Button  variant="outline-light" onClick={handleShow}>Вхід</Button>
+                                }
+
+
+
                                 <Button variant="outline-light"className='mx-3' onClick={handleShowCart}>Кошик</Button>
 
 

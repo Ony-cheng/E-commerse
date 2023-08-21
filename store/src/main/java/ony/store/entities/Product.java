@@ -21,7 +21,7 @@ public class Product {
     @Type(type = "org.hibernate.type.TextType")
     private String description;
 
-    private String price;
+    private float price;
 
     private float rating;
     private String imageUrl;
@@ -90,11 +90,11 @@ public class Product {
         this.description = description;
     }
 
-    public String getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

@@ -3,7 +3,7 @@ import {Row} from "react-bootstrap";
 import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import ProductCard from "./ProductCard";
-const TopProducts = ({topProducts, topIsVisible}) => {
+const TopProducts = ({topProducts, topIsVisible, categories}) => {
 
 
 
@@ -35,8 +35,39 @@ const TopProducts = ({topProducts, topIsVisible}) => {
 
 
     return (
-        <Row className="mt-3">
-            <h1 className="text-center">Топ продажів</h1>
+
+        <Row>
+            {/*<h3>Топ категорій</h3>*/}
+            {/*<div style={{display:"flex", justifyContent:"space-around"}}>*/}
+            {/*    <div>*/}
+            {/*        <h5 className="my-5">*/}
+            {/*            Срака*/}
+            {/*        </h5>*/}
+            {/*    </div>*/}
+            {/*    <div>*/}
+            {/*        <h5 className="my-5">*/}
+            {/*            Моя нескінченна потужність*/}
+            {/*        </h5>*/}
+            {/*    </div>*/}
+            {/*    <div>*/}
+            {/*        <h5 className="my-5">*/}
+            {/*            Детермінізм рекурсії*/}
+            {/*        </h5>*/}
+            {/*    </div>*/}
+
+            {/*</div>*/}
+        <Row className="mt-3 p-4"
+             style={{
+                 // borderRadius:"10px",
+            // border:"solid lightgrey 1px",
+         // backgroundImage: 'url(https://media.istockphoto.com/id/1071204136/photo/cute-bengal-funny-cat-playing.jpg?b=1&s=612x612&w=0&k=20&c=gWWceQHkfxT1k2Nb3lwWaxRMdKr720_ymoDhNkMgQOo=)',
+            // backgroundColor:"deepskyblue",
+            backgroundSize:"cover"
+        }}>
+
+
+            <h3
+                >Топ продажів</h3>
             <Carousel activeIndex={index} onSelect={handleSelect} className='my-3'>
 
                 {groupIntoThrees(topProducts).map((group) =>(
@@ -65,6 +96,7 @@ const TopProducts = ({topProducts, topIsVisible}) => {
 
             </Carousel>
         </Row>
+            </Row>
     );
 };
 

@@ -13,6 +13,8 @@ import Values from "../API/Values";
 import Cart from "../components/Cart";
 import './styles/SomePagesStyles.css'
 import CartService from "../API/CartService";
+import Image from 'react-bootstrap/Image';
+
 const Home = ({props}) => {
 
     const [products, setProducts]= useState([{name:'',description:'',imageUrl:'', id:''}]);
@@ -32,6 +34,19 @@ const Home = ({props}) => {
         username: "Pikatchu",
         email: "pikatchu@mail.gov.ua"
     })
+    const [cart, setCart] = useState({
+        id: '',
+        cartItems: {
+                     128: {
+                                id: '',
+                                product: {name: '', description: '', imageUrl: '', id: ''}
+                          }
+        }
+
+    })
+
+
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -74,9 +89,7 @@ const Home = ({props}) => {
     }
 
 
-    const [cart, setCart] = useState({
-        products:[]
-    })
+
 
     async function fetchCart(userName){
         const result = await CartService.getCart(userName)
@@ -129,12 +142,13 @@ const Home = ({props}) => {
     return (
         <div className='main'>
 
-            <NavigationBar handleShow={handleShow} handleShowCart={handleShowCart} />
+            <NavigationBar handleShow={handleShow} handleShowCart={handleShowCart} user={user} />
             <Login handleClose={handleClose} show={show}/>
 
             <main className="mx-0 min-vh-100 "  >
                 <Container className="mx-0  min-vw-100">
                     <Row className="w-100">
+
                     <Col className="px-0 col-2  ">
 
                         <FilterSideBar categories={categories}
@@ -147,27 +161,38 @@ const Home = ({props}) => {
                     </Col>
 
                     <Col className="px-0 my-3  col-10" >
-                        <Container className="mx-0 px-4 py-3"  style={{ borderLeft: '1px solid grey' }}>
+
+                        <Container className="mx-0 px-4 py-3"  style={{ borderLeft: '1px solid #d3d3d3' }}>
                     <Row className="mt-1 mx-0 ">
-                        <Col className=" py-1">
+                        <h2>Будь які товари за найкращіми цінами</h2>
+                        <Row>
+                        <Col className=" py-3">
+
                         <Search
                             searchQuery={searchQuery}
                             setSearchQuery={setSearchQuery}/>
                         </Col>
-                        <Col className=' p-2'>
+                        <Col className=' p-2 ' style={{
+                            display: 'flex',
+                            alignItems: 'center' }} >
                         {
                             !!(activeCat)
                             ? !!(activeSubCat)?
                                 <h6> Товари в категорії : {activeCat.category} / {activeSubCat.subcategory} </h6>
                                 :  <h6> Товари в категорії : {activeCat.category} </h6>
-                                :<h6 >Пошук товарів, на які ви заслуговуєте</h6>
+                                :<h6 >Пошук товарів в усіх категоріях</h6>
                         }
                             </Col>
+                        </Row>
                     </Row>
                     <Row  className="mx-5">
 
                     </Row>
-                            <hr style={{marginTop: '50px', marginBottom: '50px' } } />
+                            <hr style={{marginTop: '50px', marginBottom: '20px' } } />
+                            {/*<Image src="https://rubryka.com/wp-content/uploads/2022/08/pes-patron-1280x720.jpeg"*/}
+                            {/*       alt="Опис зображення"*/}
+                            {/*       className="mx-5 my-5 w-75"*/}
+                            {/*       fluid />*/}
                     <ProductsContainer products={products}
                                        cart={cart}
                                        activeCat={activeCat}/>
@@ -175,9 +200,12 @@ const Home = ({props}) => {
 
                     {topIsVisible
                                 ?
-                    <TopProducts
-                        topProducts={topProducts}
-                    />
+                        <Row className="mx-5">
+
+                            <TopProducts
+                                topProducts={topProducts} categories={categories}
+                            />
+                        </Row>
                                 :<p></p>
                             }
                         </Container>

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 //@CrossOrigin("http://localhost:3000")
-@CrossOrigin( value = {"http://192.168.1.114:3000", "http://localhost:3000"})
+@CrossOrigin( value = {"http://192.168.1.114:3000", "http://localhost:3000", "http://localhost:3001"})
 @RestController
 @RequestMapping("api/v1.0/values")
 public class ValuesController {

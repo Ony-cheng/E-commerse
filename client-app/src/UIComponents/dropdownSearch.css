@@ -1,0 +1,37 @@
+.dropdown{
+
+}
+
+.ddInput{
+    width:100%;
+    padding:5px;
+    border-radius: 5px;
+    border: solid 1px lightgrey;
+}
+
+.option-box{
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    width: 100%;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom:solid 1px lightgrey;
+    border-left:solid 1px lightgrey;
+    border-right:solid 1px lightgrey;
+    max-height: 12rem;
+    overflow: auto;
+}
+.options{
+    margin:3px;
+    padding:2px;
+    border-radius:3px;
+    cursor: pointer;
+}
+.options:hover{
+    background-color: lightgrey;
+}
+
+.ddInput{
+    margin-top: 5px;
+}
